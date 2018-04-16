@@ -1,0 +1,215 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Kobiuteraki
+{
+    public partial class Form1 : Form
+    {
+        string input = "0";
+        string proto = string.Empty;
+        string deytero = string.Empty;
+        char praxi;
+        double apotelesma = 0.0;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "8";
+            this.textBox1.Text += input;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            proto = input;
+            praxi = '*';
+            input = "0";
+            koma.Enabled = true;
+        }
+
+        private void ena_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "1";
+            this.textBox1.Text += input;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dio_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "2";
+            this.textBox1.Text += input;
+        }
+
+        private void tria_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "3";
+            this.textBox1.Text += input;
+        }
+
+        private void tesera_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "4";
+            this.textBox1.Text += input;
+        }
+
+        private void pede_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "5";
+            this.textBox1.Text += input;
+        }
+
+        private void exi_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "6";
+            this.textBox1.Text += input;
+        }
+
+        private void efta_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "7";
+            this.textBox1.Text += input;
+        }
+
+        private void enia_Click(object sender, EventArgs e)
+        {
+            if (input == "0")
+                input = "";
+            this.textBox1.Text = "";
+            input += "9";
+            this.textBox1.Text += input;
+        }
+
+        private void miden_Click(object sender, EventArgs e)
+        {
+            this.textBox1.Text = "";
+            if (input == "0")
+                input = "0";
+            else
+            input += "0";
+            this.textBox1.Text += input;
+        }
+
+        private void koma_Click(object sender, EventArgs e)
+        {
+            this.textBox1.Text = "";
+            input += ",";
+            this.textBox1.Text += input;
+            koma.Enabled = false;
+        }
+
+        private void ison_Click(object sender, EventArgs e)
+        {
+            deytero = input;
+            double num1, num2;
+            double.TryParse(proto, out num1);
+            double.TryParse(deytero, out num2);
+
+            this.textBox1.Text = "";
+            this.input = "0";
+            this.proto = string.Empty;
+            this.deytero = string.Empty;
+            koma.Enabled = true;
+
+            if (praxi == '+')
+            {
+                apotelesma = num1 + num2;
+                textBox1.Text = apotelesma.ToString();
+            }
+            else if (praxi == '-')
+            {
+                apotelesma = num1 - num2;
+                textBox1.Text = apotelesma.ToString();
+            }
+            else if (praxi == '*')
+            {
+                apotelesma = num1 * num2;
+                textBox1.Text = apotelesma.ToString();
+            }
+            else if (praxi == '/')
+            {
+                if (num2 != 0)
+                {
+                    apotelesma = num1 / num2;
+                    textBox1.Text = apotelesma.ToString();
+                }
+                else
+                {
+                    textBox1.Text = "ΤΡΑΓΙΚΟ ΣΦΑΛΜΑ";
+                    MessageBox.Show("ΑΓΝΟΕΙΣ ΤΙ ΔΥΝΑΜΕΙΣ ΠΑΣ ΝΑ ΚΑΛΕΣΕΙΣ ΘΝΗΤΕ");
+                }
+            }
+        }
+
+        private void syn_Click(object sender, EventArgs e)
+        {
+            proto = input;
+            praxi = '+';
+            input = "0";
+            koma.Enabled = true;
+        }
+
+        private void plin_Click(object sender, EventArgs e)
+        {
+            proto = input;
+            praxi = '-';
+            input = "0";
+            koma.Enabled = true;
+        }
+
+        private void dia_Click(object sender, EventArgs e)
+        {
+            proto = input;
+            praxi = '/';
+            input = "0";
+            koma.Enabled = true;
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            this.textBox1.Text = "";
+            this.input = "0";
+            this.proto = string.Empty;
+            this.deytero = string.Empty;
+            this.textBox1.Text = input;
+            koma.Enabled = true;
+        }
+    }
+}
